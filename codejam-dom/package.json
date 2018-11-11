@@ -4,7 +4,8 @@
   "description": "CodeJam-dom task, RSSchool",
   "scripts": {
     "build": "gulp build",
-    "comb": "csscomb src/css"
+    "comb": "csscomb src/css",
+    "lint": "eslint --fix src/js"
   },
   "keywords": [],
   "author": "Konstantin Golovan <triple56@yandex.ru>",
