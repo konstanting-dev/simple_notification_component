@@ -17,6 +17,7 @@
     "eslint-plugin-import": "^2.14.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
+    "gulp-csscomb": "^3.0.8",
     "gulp-sass": "^4.0.2",
     "stylelint-config-htmlacademy": "^0.1.1"
   }

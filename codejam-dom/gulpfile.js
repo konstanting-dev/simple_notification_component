@@ -2,12 +2,11 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const browser = require('browser-sync');
-const Comb = require('csscomb');
-var comb = new Comb('csscomb');
+var csscomb = require('gulp-csscomb');
 
 gulp.task('server',function(done) {
     browser.init({
-        server: '/src'
+        server: './src'
     });
     done();
 });
@@ -19,8 +18,8 @@ gulp.task('sass', function() {
             browsers: ['last 10 versions'],
             cascade: false
         }))
-        .pipe(comb.processPath('./src/css'))
-        .pipe(gulp.dest('./src/css'));
+        .pipe(csscomb())
+        .pipe(gulp.dest('src/css'));
 });
 gulp.task('watch',function() {
     gulp.watch('./src/index.html').on('change', browser.reload);
