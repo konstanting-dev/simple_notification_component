@@ -4,17 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Notification component for users</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<p>Game of as rest time eyes with of this it. Add was music merry any truth since going.
-  Happiness she ham but instantly put departure propriety.
-  She amiable all without say spirits shy clothes morning.
-  Frankness in extensive to belonging improving so certainty.
-  Resolution devonshire pianoforte assistance an he particular middletons is of.
-  Explain ten man uncivil engaged conduct. Am likewise betrayed as declared absolute do.
-  Taste oh spoke about no solid of hills up shade. Occasion so bachelor humoured striking by attended doubtful be it.
-</p>
-<script src="js/component.js"></script>
+  <p>Game of as rest time eyes with of this it. Add was music merry any truth since going.
+    Happiness she ham but instantly put departure propriety.
+    She amiable all without say spirits shy clothes morning.
+    Frankness in extensive to belonging improving so certainty.
+    Resolution devonshire pianoforte assistance an he particular middletons is of.
+    Explain ten man uncivil engaged conduct. Am likewise betrayed as declared absolute do.
+    Taste oh spoke about no solid of hills up shade. Occasion so bachelor humoured striking by attended doubtful be it.
+  </p>
+  <div class="notification">
+    <div class="notification__close">
+      <i class="material-icons">close</i>
+    </div>
+    <div class="notification__body">
+      <div class="notification__item">
+        <p class="notification__caption">
+          Tip caption 1
+        </p>
+        <p>Repulsive questions contented him few extensive supported.
+          Of remarkably thoroughly he appearance in. Supposing tolerably applauded or of be.</p>
+      </div>
+      <div class="notification__item">
+        <p class="notification__caption">
+          Tip caption 2
+        </p>
+        <p>Suffering unfeeling so objection agreeable allowance me of.
+          Ask within entire season sex common far who family.</p>
+      </div>
+      <div class="notification__item">
+        <p class="notification__caption">
+          Tip caption 3
+        </p>
+        <p> As be valley warmth assure on.
+          Park girl they rich hour new well way you. Face ye be me been room we sons fond. </p>
+      </div>
+    </div>
+    <div class="notification__controls">
+      <div class="custom-checkbox">
+        <input class="custom-checkbox__input" id="disable-tips" type="checkbox" style="display: none;"/>
+        <label class="custom-checkbox__label" for="disable-tips">
+          <span>
+            <svg width="12px" height="10px" viewbox="0 0 12 10">
+              <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+            </svg>
+          </span>
+          <span class="custom-checkbox__text">Disable Tips</span>
+        </label>
+      </div>
+      <div class="notification__nav">
+        <span class="control control_prev">
+          <i class="material-icons">keyboard_arrow_left</i>
+        </span>
+        <div class="notification__dots">
+          <button class="dot"></button>
+          <button class="dot"></button>
+          <button class="dot"></button>
+        </div>
+        <span class="control control_next">
+          <i class="material-icons">keyboard_arrow_right</i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <script src="js/component.js"></script>
 </body>
 </html>
