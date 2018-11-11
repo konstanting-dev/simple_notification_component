@@ -1,26 +1,36 @@
 .notification {
-  position: absolute;
+  position: fixed;
   right: 0;
-  top: 0;
-  max-width: 400px;
+  top: -1000px;
+  min-width: 300px;
   padding: 30px;
   background: #fff;
   box-shadow: 0px 0px 25px 4px rgba(239, 234, 234, 0.42);
   border-radius: 3px;
   font-family: Arial, sans-serif;
+  transition: top 1s linear;
 
   &__body {
+    position: relative;
     width: 80%;
+    min-height: 150px;
     margin-bottom: 30px;
+    overflow: hidden;
   }
   &__close {
     position: absolute;
     top: 20px;
     right: 30px;
     cursor: pointer;
+
+    &:hover {
+      color: grey;
+    }
   }
   &__item {
-
+    position: absolute;
+    width: 100%;
+    transition: transform 1s;
   }
   &__caption {
     font-weight: 600;
@@ -36,19 +46,31 @@
     margin: 0 20px;
   }
   &__nav {
+    margin-left: 20px;
     display: flex;
     align-items: center;
-    min-width: 150px;
-    margin-left: auto;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+
+  &_show {
+    top: 0;
   }
 }
 
 .control {
   width: 24px;
   height: 24px;
+  color: grey;
   border-radius: 50%;
   border: 1px solid grey;
   cursor: pointer;
+  transition: background 0.3s linear, color 0.3s linear;
+
+  &:hover {
+    background: grey;
+    color: #fff;
+  }
 }
 
 .dot {
@@ -56,12 +78,17 @@
   height: 8px;
   padding: 0;
   border: none;
+  outline: none;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 50%;
   cursor: pointer;
   background: grey;
+
+  &:focus {
+    outline: none;
+  }
 
   &:not(:last-child) {
     margin-right: 10px;
