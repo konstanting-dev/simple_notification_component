@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const browser = require('browser-sync');
-var csscomb = require('gulp-csscomb');
+const csscomb = require('gulp-csscomb');
 
 gulp.task('server',function(done) {
     browser.init({
@@ -21,9 +21,11 @@ gulp.task('sass', function() {
         .pipe(csscomb())
         .pipe(gulp.dest('src/css'));
 });
+
 gulp.task('watch',function() {
     gulp.watch('./src/index.html').on('change', browser.reload);
     gulp.watch('./src/sass/*.scss',['sass']).on('change', browser.reload);
+    gulp.watch('./src/js/*.js').on('change', browser.reload);
 });
 
 gulp.task( 'build', ['server', 'sass', 'watch']);
