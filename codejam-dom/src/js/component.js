@@ -4,18 +4,18 @@
     const tips = [
       {
         caption: 'Tip caption 1',
-        text: 'Repulsive questions contented him few extensive supported.\n'
-        + '          Of remarkably thoroughly he appearance in. Supposing tolerably applauded or of be.',
+        text: `Repulsive questions contented him few extensive supported.
+        Of remarkably thoroughly he appearance in. Supposing tolerably applauded or of be.`,
       },
       {
         caption: 'Tip caption 2',
-        text: 'Suffering unfeeling so objection agreeable allowance me of.\n'
-        + '          Ask within entire season sex common far who family.',
+        text: `Suffering unfeeling so objection agreeable allowance me of.
+        Ask within entire season sex common far who family.`,
       },
       {
         caption: 'Tip caption 3',
-        text: 'As be valley warmth assure on.\n'
-        + '          Park girl they rich hour new well way you. Face ye be me been room we sons fond.',
+        text: `As be valley warmth assure on.
+        Park girl they rich hour new well way you. Face ye be me been room we sons fond.`,
       },
       {
         caption: 'Tip caption 4',
@@ -57,44 +57,45 @@
     const checkbox = document.getElementById('disable-tips');
 
     let left = 0;
-    let carouselCount = 0;
-    const maxCarouselCount = items.length * 100;
+    let carouselXPos = 0;
+    let carouselTipStep = 100;
+    const maxCarouselXPos = items.length * carouselTipStep;
 
     Array.prototype.forEach.call(items, (item, index) => {
       items[index].style.left = `${left}%`;
-      left += 100;
+      left += carouselTipStep;
     });
 
     function slider() {
-      switch (carouselCount) {
-        case -100:
-          carouselCount = maxCarouselCount - 100;
+      switch (carouselXPos) {
+        case -carouselTipStep:
+          carouselXPos = maxCarouselXPos - carouselTipStep;
           break;
-        case maxCarouselCount:
-          carouselCount = 0;
+        case maxCarouselXPos:
+          carouselXPos = 0;
           break;
         default:
           break;
       }
 
       for (let i = 0; i < items.length; i += 1) {
-        items[i].style.transform = `translateX(-${carouselCount}%)`;
+        items[i].style.transform = `translateX(-${carouselXPos}%)`;
       }
     }
 
     function sliderPrevEvent() {
-      carouselCount -= 100;
+      carouselXPos -= carouselTipStep;
 
-      const pos = (carouselCount < 0 ? maxCarouselCount - 100 : carouselCount) / 100;
+      const pos = (carouselXPos < 0 ? maxCarouselXPos - carouselTipStep : carouselXPos) / carouselTipStep;
       document.querySelector('.dot_active').classList.toggle('dot_active');
       dots[pos].classList.add('dot_active');
       slider();
     }
 
     function sliderNextEvent() {
-      carouselCount += 100;
+      carouselXPos += carouselTipStep;
 
-      const pos = (carouselCount === maxCarouselCount ? 0 : carouselCount) / 100;
+      const pos = (carouselXPos === maxCarouselXPos ? 0 : carouselXPos) / carouselTipStep;
       document.querySelector('.dot_active').classList.toggle('dot_active');
       dots[pos].classList.add('dot_active');
       slider();
@@ -125,7 +126,7 @@
       document.querySelector('.dot_active').classList.toggle('dot_active');
       target.classList.add('dot_active');
       const pos = Array.prototype.indexOf.call(dots, target);
-      carouselCount = pos * 100;
+      carouselXPos = pos * carouselTipStep;
       slider();
     });
 
