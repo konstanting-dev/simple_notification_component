@@ -19,7 +19,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-csscomb": "^3.0.8",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^5.1.0",
     "stylelint-config-htmlacademy": "^0.1.1"
   }
 }
